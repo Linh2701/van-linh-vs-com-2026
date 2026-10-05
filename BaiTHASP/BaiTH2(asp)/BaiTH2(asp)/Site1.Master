@@ -1,0 +1,311 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true"
+    CodeBehind="Site1.master.cs"
+    Inherits="BaiTH2_asp_.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Quản lý bài tập ASP.NET</title>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+        }
+
+
+        /* ===== KHUNG CHÍNH ===== */
+
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+
+        /* ===== SIDEBAR ===== */
+
+        .sidebar {
+            width: 230px;
+            background-color: #12345b;
+            color: white;
+            flex-shrink: 0;
+        }
+
+
+        /* Logo */
+
+        .logo {
+            padding: 22px 20px;
+            background-color: #0d2948;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo h2 {
+            margin: 0;
+            font-size: 19px;
+        }
+
+        .logo p {
+            margin: 5px 0 0;
+            font-size: 12px;
+            color: #b9c9da;
+        }
+
+
+        /* Menu */
+
+        .menu-title {
+            padding: 18px 20px 8px;
+            font-size: 11px;
+            color: #9fb3c8;
+            text-transform: uppercase;
+        }
+
+        .menu a {
+            display: block;
+            color: #eaf2f8;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-size: 14px;
+            border-left: 4px solid transparent;
+            transition: 0.2s;
+        }
+
+        .menu a:hover {
+            background-color: #1d4f80;
+            border-left: 4px solid #4dabf7;
+            padding-left: 24px;
+        }
+
+
+        /* ===== KHU VỰC BÊN PHẢI ===== */
+
+        .main-area {
+            flex: 1;
+            min-width: 0;
+        }
+
+
+        /* ===== HEADER ===== */
+
+        .top-header {
+            height: 70px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            border-bottom: 1px solid #e1e5e9;
+        }
+
+        .top-header h1 {
+            margin: 0;
+            font-size: 22px;
+            color: #12345b;
+        }
+
+        .admin {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .admin span {
+            color: #1266c9;
+            font-weight: bold;
+        }
+
+
+        /* ===== NỘI DUNG ===== */
+
+        .content {
+            padding: 30px;
+            min-height: calc(100vh - 120px);
+        }
+
+        .content-box {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            min-height: 500px;
+        }
+
+
+        /* ===== FOOTER ===== */
+
+        .footer {
+            background-color: white;
+            border-top: 1px solid #e1e5e9;
+            text-align: center;
+            padding: 15px;
+            color: #777;
+            font-size: 12px;
+        }
+
+
+        /* ===== RESPONSIVE ===== */
+
+        @media (max-width: 768px) {
+
+            .sidebar {
+                width: 180px;
+            }
+
+            .content {
+                padding: 15px;
+            }
+
+            .top-header {
+                padding: 0 15px;
+            }
+
+            .top-header h1 {
+                font-size: 18px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <form id="form1" runat="server">
+
+        <div class="layout">
+
+
+            <!-- ================= SIDEBAR ================= -->
+
+            <aside class="sidebar">
+
+                <div class="logo">
+                    <h2>ASP.NET WebForms</h2>
+                    <p>Bài tập thực hành</p>
+                </div>
+
+
+                <div class="menu-title">
+                    Menu
+                </div>
+
+
+                <div class="menu">
+
+                    <a href="Default.aspx">
+                        🏠 Trang chủ
+                    </a>
+
+                    <a href="bai1.aspx">
+                        📌 Bài tập 1
+                    </a>
+
+                    <a href="bai2.aspx">
+                        🖼️ Bài tập 2
+                    </a>
+
+                    <a href="bai3.aspx">
+                        📦 Bài tập 3
+                    </a>
+
+                    <a href="bai4.aspx">
+                        👨‍🎓 Bài tập 4
+                    </a>
+
+                </div>
+
+
+                <div class="menu-title">
+                    Thông tin
+                </div>
+
+
+                <div class="menu">
+
+                    <a href="#">
+                        📚 Giới thiệu
+                    </a>
+
+                    <a href="#">
+                        ℹ️ Thông tin sinh viên
+                    </a>
+
+                     <a href="Quanlysach.aspx">
+                            ℹ️ Quản lý sách
+                     </a>
+
+                </div>
+
+            </aside>
+
+
+            <!-- ================= MAIN ================= -->
+
+            <div class="main-area">
+
+
+                <!-- Header -->
+
+                <header class="top-header">
+
+                    <h1>
+                        Hệ thống bài tập ASP.NET
+                    </h1>
+
+                    <div class="admin">
+                        Sinh viên:
+                        <span>IT Student</span>
+                    </div>
+
+                </header>
+
+
+                <!-- Content -->
+
+                <main class="content">
+
+                    <div class="content-box">
+
+                        <asp:ContentPlaceHolder
+                            ID="MainContent"
+                            runat="server">
+
+                        </asp:ContentPlaceHolder>
+
+                    </div>
+
+                </main>
+
+
+                <!-- Footer -->
+
+                <footer class="footer">
+
+                    KHOA CNTT - ĐHCN VIỆT TRÌ
+                    <br />
+
+                    ASP.NET WebForms - Bài tập thực hành
+
+                </footer>
+
+
+            </div>
+
+        </div>
+
+    </form>
+
+</body>
+</html>
