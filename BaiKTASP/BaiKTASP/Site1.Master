@@ -1,0 +1,146 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="BaiKTASP.Site1" %>
+
+<!DOCTYPE html>
+<html lang="vi">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>Quản lý nhân sự</title>
+    <!-- Thư viện icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <style>
+        /* ===== Màu chính (muốn đổi màu chỉ cần sửa 3 dòng này) ===== */
+        :root {
+            --mau-chinh: #0d9488;   /* thanh menu ngang + mục đang chọn */
+            --mau-toi: #0f2f3a;     /* nền sidebar */
+            --mau-nhan: #fde047;    /* chữ vàng nổi bật */
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        /* ===== Header ===== */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 20px;
+            background: #87CEFA;
+        }
+        .logo { display: flex; align-items: center; gap: 10px; }
+        .logo i { font-size: 34px; color: var(--mau-chinh); }
+        .icons { display: flex; gap: 25px; }
+        .icons a {
+            text-align: center;
+            text-decoration: none;
+            color: #475569;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        .icons i { display: block; font-size: 18px; color: var(--mau-chinh); margin-bottom: 4px; }
+
+        /* ===== Menu ngang ===== */
+        .menu-ngang {
+            display: flex;
+            justify-content: space-between;
+            background: var(--mau-chinh);
+        }
+        .menu-ngang a {
+            display: inline-block;
+            padding: 9px 14px;
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        .menu-ngang a:hover { background: rgba(255, 255, 255, 0.2); }
+        .menu-ngang a.vang { color: var(--mau-nhan); font-weight: bold; }
+
+        /* ===== Sidebar + nội dung ===== */
+        .khung { display: flex; min-height: 450px; }
+
+        .sidebar { width: 210px; background: var(--mau-toi); }
+        .sidebar a {
+            display: block;
+            padding: 12px 16px;
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        .sidebar a:hover { background: rgba(255, 255, 255, 0.15); }
+        .sidebar a.active { background: var(--mau-chinh); }
+
+        .noidung { flex: 1; padding: 15px 25px; }
+
+        /* ===== Footer ===== */
+        .footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+            font-weight: bold;
+            background: black;
+            color: white;
+           
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <!-- 1. HEADER: logo + 4 biểu tượng -->
+        <div class="header">
+            <div class="logo">
+                <i class="fa-solid fa-globe"></i>
+                <div>
+                    <b>ASP.NET</b><br />
+                    <small>Web Forms MasterPage</small>
+                </div>
+            </div>
+            <div class="icons">
+                <a href="#"><i class="fa-solid fa-laptop"></i>HỆ THỐNG</a>
+                <a href="#"><i class="fa-regular fa-file-lines"></i>HỒ SƠ</a>
+                <a href="#"><i class="fa-solid fa-chart-simple"></i>BÁO CÁO</a>
+                <a href="#"><i class="fa-solid fa-desktop"></i>ỨNG DỤNG</a>
+            </div>
+        </div>
+
+        <!-- 2. MENU NGANG -->
+        <div class="menu-ngang">
+            <div>
+                <a href="WebForm1.aspx">Trang Chủ</a>
+                <a href="#">Giới thiệu</a>
+                <a href="#">Thống kê</a>
+                <a href="quanlynhanvien.aspx" class="vang">Nhân viên</a>
+                <a href="#">Liên hệ</a>
+            </div>
+            <a href="#">Đăng nhập <i class="fa-solid fa-user"></i></a>
+        </div>
+
+        <!-- 3. SIDEBAR (trái) + NỘI DUNG (phải) -->
+        <div class="khung">
+            <div class="sidebar">
+                <a href="WebForm1.aspx"><i class="fa-solid fa-house"></i> Trang chủ</a>
+                <a href="#"><i class="fa-solid fa-building"></i> Quản lý phòng ban</a>
+                <a href="quanlynhanvien.aspx" class='<%= Request.Url.AbsolutePath.Contains("quanlynhanvien") ? "active" : "" %>'>
+                    <i class="fa-solid fa-users"></i> Quản lý nhân viên</a>
+                <a href="#"><i class="fa-solid fa-key"></i> Quản lý đăng nhập</a>
+                <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a>
+            </div>
+
+            <div class="noidung">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+
+        <!-- 4. FOOTER -->
+        <div class="footer">Khoa CNTT / Lớp TT1Đ23 - Trường ĐH CNVT</div>
+
+    </form>
+</body>
+</html>
